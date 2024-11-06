@@ -1,0 +1,16 @@
+services:
+  python:
+    container_name: python
+    image: python-app
+    environment:
+      - TZ=Asia/Seoul
+    networks:
+      - app-network
+    volumes:
+      - /home/ubuntu/model/:/home/ubuntu/model/
+      - /home/ubuntu/detector/deepfake-detector/:/home/ubuntu/detector/deepfake-detector/
+      - /home/ubuntu/attack/:/home/ubuntu/attack/
+      - /usr/bin/bash:/usr/bin/bash
+networks:
+  app-network:
+    external: true
